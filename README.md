@@ -1,5 +1,8 @@
 # easel
 
+[![release](http://img.shields.io/github/release/tanksuzuki/easel.svg?style=flat-square)](https://github.com/tanksuzuki/easel/releases)
+[![license: Apache](https://img.shields.io/badge/license-Apache-blue.svg?style=flat-square)](LICENSE)
+
 easel is a tool for write down your lean-canvas using markdown.
 
 ## Install
