@@ -29,11 +29,23 @@ func runInit(args []string) int {
 
 
 
+## EXISTING ALTERNATIVES
+
+
+
 # CUSTOMER SEGMENTS
 
 
 
+## EARLY ADOPTERS
+
+
+
 # UNIQUE VALUE PROPOSITION
+
+
+
+## HIGH-LEVEL CONCEPT
 
 
 
