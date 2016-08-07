@@ -30,6 +30,7 @@ Commands:
 	init        Generate markdown template
 	watch       Run the preview server
 	write       Convert the markdown to HTML
+	version     Show the easel version information
 
 Use "easel help [command]" for more information about a command.
 ```
@@ -47,11 +48,23 @@ sample.md:
 
 
 
+## EXISTING ALTERNATIVES
+
+
+
 # CUSTOMER SEGMENTS
 
 
 
+## EARLY ADOPTERS
+
+
+
 # UNIQUE VALUE PROPOSITION
+
+
+
+## HIGH-LEVEL CONCEPT
 
 
 
