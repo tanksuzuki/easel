@@ -49,11 +49,13 @@ const HTML_TEMPLATE = `<!DOCTYPE html>
       font-size: 16px;
       margin-top: 0;
       margin-bottom: 10px;
+      word-break: normal;
     }
     h2, h3, h4, h5, h6 {
       font-size: 14px;
       margin-top: 0;
       margin-bottom: 10px;
+      word-break: normal;
     }
     ol, ul {
       line-height: 1.75;
