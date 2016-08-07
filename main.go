@@ -37,6 +37,7 @@ var commands = []*Command{
 	cmdInit,
 	cmdWatch,
 	cmdWrite,
+	cmdVersion,
 }
 
 func main() {
