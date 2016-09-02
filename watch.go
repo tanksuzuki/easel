@@ -5,7 +5,6 @@ import (
 	"io/ioutil"
 	"net/http"
 	"os"
-	"text/template"
 
 	"github.com/jaschaephraim/lrserver"
 	"github.com/russross/blackfriday"
@@ -79,9 +78,7 @@ func runWatch(args []string) int {
 		}
 		m := getCanvasMap(blackfriday.MarkdownCommon(md))
 		m["livereload"] = "<script src=\"http://localhost:" + fmt.Sprintf("%d", watchFlags.live) + "/livereload.js\"></script>"
-		tpl := template.New("")
-		template.Must(tpl.Parse(HTML_TEMPLATE))
-		tpl.Execute(rw, m)
+		getParsedTemplate().Execute(rw, m)
 	})
 
 	fmt.Printf("listening on localhost:%d\n", watchFlags.port)
