@@ -98,7 +98,10 @@ sample.md:
 
 Write your lean-canvas to above markdown.
 
-**NOTE**: Do not add/modify h1(`# heading`).
+**NOTE**:
+
+* Do not add/modify h1(`# heading`).
+* Emoji supported :beer:. e.g.`:beer:`
 
 ### Convert the canvas to HTML with style
 
