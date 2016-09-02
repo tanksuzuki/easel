@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
-	"text/template"
 
 	"github.com/russross/blackfriday"
 )
@@ -39,11 +38,8 @@ func runWrite(args []string) int {
 		return 1
 	}
 
-	m := getCanvasMap(blackfriday.MarkdownCommon(md))
-
-	tpl := template.New("")
-	template.Must(tpl.Parse(HTML_TEMPLATE))
-	tpl.Execute(os.Stdout, m)
+	m := getCanvasMap(blackfriday.MarkdownCommon(emojify(md)))
+	getParsedTemplate().Execute(os.Stdout, m)
 
 	return 0
 }
