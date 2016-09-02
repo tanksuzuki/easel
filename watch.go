@@ -76,7 +76,7 @@ func runWatch(args []string) int {
 			fmt.Fprintln(os.Stderr, err)
 			os.Exit(1)
 		}
-		m := getCanvasMap(blackfriday.MarkdownCommon(md))
+		m := getCanvasMap(blackfriday.MarkdownCommon(emojify(md)))
 		m["livereload"] = "<script src=\"http://localhost:" + fmt.Sprintf("%d", watchFlags.live) + "/livereload.js\"></script>"
 		getParsedTemplate().Execute(rw, m)
 	})

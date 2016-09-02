@@ -4,6 +4,8 @@ import (
 	"regexp"
 	"strings"
 	"text/template"
+
+	"github.com/kyokomi/emoji"
 )
 
 func getTitle(html []byte) string {
@@ -39,4 +41,8 @@ func getParsedTemplate() *template.Template {
 	tpl = template.Must(tpl.Parse(TEMPLATE_STYLE_CANVAS))
 	tpl = template.Must(tpl.Parse(TEMPLATE_STYLE_MARKDOWN))
 	return tpl
+}
+
+func emojify(html []byte) []byte {
+	return []byte(emoji.Sprint(string(html)))
 }

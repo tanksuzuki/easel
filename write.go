@@ -38,7 +38,7 @@ func runWrite(args []string) int {
 		return 1
 	}
 
-	m := getCanvasMap(blackfriday.MarkdownCommon(md))
+	m := getCanvasMap(blackfriday.MarkdownCommon(emojify(md)))
 	getParsedTemplate().Execute(os.Stdout, m)
 
 	return 0
