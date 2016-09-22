@@ -5,7 +5,7 @@ import (
 	"os"
 )
 
-const VERSION = "0.3.0"
+const VERSION = "1.0.0"
 
 var cmdVersion = &Command{
 	Run:       runVersion,
@@ -21,7 +21,6 @@ func init() {
 }
 
 func runVersion(args []string) int {
-
 	if len(args) > 0 {
 		fmt.Fprintln(os.Stderr, "Too many arguments given.")
 		return 1
