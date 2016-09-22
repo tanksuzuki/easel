@@ -73,7 +73,7 @@ func main() {
 }
 
 var usageTemplate = `easel is a tool for write down your lean-canvas using markdown.
-https://github.com/tanksuzuki/easel
+Documentation is available at https://github.com/tanksuzuki/easel.
 
 Usage:
 	easel command [args]
@@ -82,7 +82,6 @@ Commands:{{range .}}
 	{{.Name | printf "%-11s"}} {{.Short}}{{end}}
 
 Use "easel help [command]" for more information about a command.
-
 `
 
 var helpTemplate = `{{.Short}}
