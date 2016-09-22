@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"io/ioutil"
 	"os"
@@ -10,7 +11,7 @@ import (
 
 var cmdWrite = &Command{
 	Run:       runWrite,
-	UsageLine: "write [OPTIONS] MARKDOWN",
+	UsageLine: "write [OPTIONS] [MARKDOWN]",
 	Short:     "Convert the markdown to HTML",
 	Long: `
 Options:
@@ -22,19 +23,27 @@ func init() {
 }
 
 func runWrite(args []string) int {
-	switch {
-	case len(args) == 1:
-	case len(args) == 0:
-		fmt.Fprintln(os.Stderr, "\"write\" requires an argument.")
-		return 1
+	var md []byte
+
+	switch len(args) {
+	case 0:
+		scanner := bufio.NewScanner(os.Stdin)
+		for scanner.Scan() {
+			md = append(md, []byte(scanner.Text()+"\n")...)
+		}
+		if err := scanner.Err(); err != nil {
+			fmt.Fprintln(os.Stderr, err)
+			return 1
+		}
+	case 1:
+		file, err := ioutil.ReadFile(args[0])
+		if err != nil {
+			fmt.Fprintln(os.Stderr, err)
+			return 1
+		}
+		md = file
 	default:
 		fmt.Fprintln(os.Stderr, "Too many arguments given.")
-		return 1
-	}
-
-	md, err := ioutil.ReadFile(args[0])
-	if err != nil {
-		fmt.Fprintln(os.Stderr, err)
 		return 1
 	}
 

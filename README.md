@@ -27,6 +27,7 @@ Usage:
 	easel command [args]
 
 Commands:
+	get         Preview the markdown on the web
 	init        Generate markdown template
 	watch       Run the preview server
 	write       Convert the markdown to HTML
@@ -118,6 +119,12 @@ $ easel watch sample.md
 Please access `localhost:3000`.
 
 Saving the markdown will reload the preview automatically.
+
+If you want to preview markdown hosted on the web, use `get` command.
+
+```
+$ easel get https://raw.githubusercontent.com/yourname/repo/master/sample.md?token=xxxxxxxxxx
+```
 
 ## License
 
