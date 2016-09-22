@@ -36,6 +36,16 @@ func init() {
 }
 
 func runWatch(args []string) int {
+	switch len(args) {
+	case 1:
+	case 0:
+		fmt.Fprintln(os.Stderr, "\"watch\" requires an argument.")
+		return 1
+	default:
+		fmt.Fprintln(os.Stderr, "Too many arguments given.")
+		return 1
+	}
+
 	watcher, err := fsnotify.NewWatcher()
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
