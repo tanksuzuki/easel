@@ -6,7 +6,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/russross/blackfriday"
+	"gopkg.in/russross/blackfriday.v2"
 )
 
 var cmdWrite = &Command{
@@ -47,7 +47,7 @@ func runWrite(args []string) int {
 		return 1
 	}
 
-	m := getCanvasMap(blackfriday.MarkdownCommon(emojify(md)))
+	m := getCanvasMap(blackfriday.Run(emojify(md)))
 	getParsedTemplate().Execute(os.Stdout, m)
 
 	return 0

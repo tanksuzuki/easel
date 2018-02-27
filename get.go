@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/russross/blackfriday"
+	"gopkg.in/russross/blackfriday.v2"
 )
 
 var cmdGet = &Command{
@@ -54,7 +54,7 @@ func runGet(args []string) int {
 			os.Exit(1)
 		}
 
-		m := getCanvasMap(blackfriday.MarkdownCommon(emojify(md)))
+		m := getCanvasMap(blackfriday.Run(emojify(md)))
 		getParsedTemplate().Execute(rw, m)
 	})
 
