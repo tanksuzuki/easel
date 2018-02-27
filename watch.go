@@ -60,7 +60,6 @@ func runWatch(args []string) int {
 	}
 
 	lr := lrserver.New(lrserver.DefaultName, uint16(watchFlags.live))
-
 	lr.SetStatusLog(nil)
 	lr.SetErrorLog(nil)
 	go lr.ListenAndServe()
