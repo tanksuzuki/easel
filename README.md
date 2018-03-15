@@ -7,13 +7,14 @@ easel is a tool for write down your lean-canvas using markdown.
 
 ## Install
 
-Please download a binary from [release](https://github.com/tanksuzuki/easel/releases).
+If you are OSX user, you can use homebrew:
 
-Distributions are available for the...
+```
+brew tap tanksuzuki/easel
+brew install easel
+```
 
-* Windows
-* Mac OS X(10.7-)
-* Linux
+If you are another platform user, you can download binary from [release page](https://github.com/tanksuzuki/easel/releases) and place it in $PATH.
 
 ## Usage
 
