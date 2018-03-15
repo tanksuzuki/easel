@@ -7,8 +7,8 @@ import (
 	"os"
 
 	"github.com/jaschaephraim/lrserver"
-	"github.com/russross/blackfriday"
 	"gopkg.in/fsnotify.v1"
+	"gopkg.in/russross/blackfriday.v2"
 )
 
 var cmdWatch = &Command{
@@ -59,12 +59,7 @@ func runWatch(args []string) int {
 		return 1
 	}
 
-	lr, err := lrserver.New(lrserver.DefaultName, uint16(watchFlags.live))
-	if err != nil {
-		fmt.Fprintln(os.Stderr, err)
-		return 1
-	}
-
+	lr := lrserver.New(lrserver.DefaultName, uint16(watchFlags.live))
 	lr.SetStatusLog(nil)
 	lr.SetErrorLog(nil)
 	go lr.ListenAndServe()
@@ -86,7 +81,7 @@ func runWatch(args []string) int {
 			fmt.Fprintln(os.Stderr, err)
 			os.Exit(1)
 		}
-		m := getCanvasMap(blackfriday.MarkdownCommon(emojify(md)))
+		m := getCanvasMap(blackfriday.Run(emojify(md)))
 		m["livereload"] = "<script src=\"http://localhost:" + fmt.Sprintf("%d", watchFlags.live) + "/livereload.js\"></script>"
 		getParsedTemplate().Execute(rw, m)
 	})

@@ -75,7 +75,7 @@ body{padding:15px;color:#333;word-break:break-all}
 .row:first-child > div{width:20%}
 .row:last-child > div{width:50%}
 .col{display:flex;flex-direction:column}
-.col > div{height:50%}
+.col > div{flex: 1 0 100px}
 .content{padding:10px;border-right:2px solid #666;border-bottom:2px solid #666}
 </style>
 {{ end }}`
